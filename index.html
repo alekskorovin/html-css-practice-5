@@ -33,8 +33,31 @@
                 <a id="graphic-optimization" class="anchor" href="#graphic-optimization" aria-hidden="true"><span aria-hidden="true"
                                                                                           class="octicon octicon-link"></span>Оптимизация графики.</a>
             </h2>
+            <p>
+                Скорость загрузки страницы зависит от объема данных, которые необходимо загрузить чтобы её отобразить. Чем больший объем загружаемых данных, тем медленне страница грузится.
 
-
+            </p>
+            <p>
+                Статистика говорит о том, что средний вес страниц постоянно растёт, кроме того изображения занимают большую часть в данных, которые загружаются &mdash; <a href="https://www.keycdn.com/support/the-growth-of-web-page-size/">The Growth of Web Page Size</a>
+            </p>
+            <h3>Анализ быстродействия сайта</h3>
+            <p>Существуют автоматизированные инструменты, которые анализируют быстродействие сайта и дают рекомендации по его оптимизации.</p>
+            <p>Гибридный анализ предоставляет сервис <a href="https://gtmetrix.com/">GTmetrix</a> который анализирует сайты используя два наиболее популярных инструмента:</p>
+            <ul>
+                <li><a href="https://developers.google.com/speed/pagespeed/">Google Page Speed</a>, который так же доступен как <a href="https://chrome.google.com/webstore/detail/pagespeed-insights-with-p/lanlbpjbalfkflkhegagflkgcfklnbnh">расширение Chrome</a>.</li>
+                <li><a href="http://yslow.org/">YSlow</a> от Yahoo, так же доступен как <a herf="https://chrome.google.com/webstore/detail/ninejjcohidippngpapiilnmkgllmakh">расширение для Chrome</a>.</li>
+            </ul>
+            <p>После анализа сайта, сервис <a href="https://gtmetrix.com/">GTmetrix</a> предлагает скачать оптимизированную версию каждого изображения, которое по его мнению необходимо сжать.</p>
+            <p>Прекрасная статья от специалиста Google по оптимизации Ilya Grigorik &mdash; <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization?hl=ru">Оптимизация изображений</a></p>
+            <h3>Сжатие изображений</h3>
+            <h4>Векторные изображения</h4>
+            <p>Все современные браузеры поддерживают векторные изображения в формате SVG. SVG изображение &mdash; это текстовый файл на основе XML (похож на HTML - с тегами и атрибутами). Эти тектстовые файлы нужно минифицировать для уменьшения размера и сжимать архиватором GZIP.</p>
+            <h4>Растровые изображения</h4>
+            <p><b>Растровые изображения</b> (JPG, PNG, GIF) &mdash; изображения состоящие из пикселей. Возможно два типа сжатия данных растровых изображений:</p>
+            <ul>
+                <li><b>С потерями</b> &mdash; когда удаляются некоторые данные пикселей, это возможно из-за особенностей человеческого зрения (изменения попросту будут слабо заметны).</li>
+                <li><b>Без потерь</b> &mdash; когда все данные остаются, а удаляется ненужная информация не влияющая на качество.</li>
+            </ul>
             <h2>
                 <a id="sprites" class="anchor" href="#sprites" aria-hidden="true"><span aria-hidden="true"
                                                                                           class="octicon octicon-link"></span>Спрайты.</a>
@@ -58,7 +81,7 @@
             </h2>
 
             <h3>Компоненты gallery, popup</h3>
-            
+
 
             <h2>
                 <a id="preprocessors" class="anchor" href="#preprocessors" aria-hidden="true"><span aria-hidden="true"
