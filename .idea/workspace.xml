@@ -26,8 +26,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13583815">
-              <caret line="50" column="148" selection-start-line="50" selection-start-column="148" selection-end-line="50" selection-end-column="148" />
+            <state vertical-scroll-proportion="0.30283913">
+              <caret line="98" column="209" selection-start-line="98" selection-start-column="209" selection-end-line="98" selection-end-column="209" />
               <folding />
             </state>
           </provider>
@@ -53,8 +53,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="492" />
+    <option name="x" value="11" />
+    <option name="y" value="507" />
     <option name="width" value="1918" />
     <option name="height" value="532" />
   </component>
@@ -123,7 +123,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="492" width="1918" height="532" extended-state="0" />
+    <frame x="11" y="507" width="1918" height="532" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -164,8 +164,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13583815">
-          <caret line="50" column="148" selection-start-line="50" selection-start-column="148" selection-end-line="50" selection-end-column="148" />
+        <state vertical-scroll-proportion="0.30283913">
+          <caret line="98" column="209" selection-start-line="98" selection-start-column="209" selection-end-line="98" selection-end-column="209" />
           <folding />
         </state>
       </provider>
