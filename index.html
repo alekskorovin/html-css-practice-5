@@ -19,7 +19,7 @@
 <body>
 <header>
     <div class="inner">
-        <h1>Оптимизация графики. Спрайты. Основы JS. Компоненты Gallery, popup. Динамический контент и стили. Препроцессоры</h1>
+        <h1>Оптимизация графики. Спрайты. Знакомство с JS. Компоненты Gallery, popup. Динамический контент и стили. Препроцессоры</h1>
         <a href="https://github.com/alekskorovin/html-css-practice-4/" class="button">
             <small>открыть на</small>
             GitHub</a>
@@ -54,7 +54,7 @@
             <p>Все современные браузеры поддерживают векторные изображения в формате SVG. SVG изображение &mdash; это текстовый файл на основе XML (похож на HTML - с тегами и атрибутами). Эти тектстовые файлы нужно минифицировать для уменьшения размера и сжимать архиватором GZIP &mdash; это должен делать сервер.</p>
             <p>Сжимать SVG позволяет инструмент <a href="https://github.com/svg/svgo">SVGO</a>, для него есть графическая оболочка <a href="https://github.com/svg/svgo-gui">GUI for SVGO</a>.</p>
             <div class="task">
-                <h3>Задание</h3>
+                <h3>Задание #1.1</h3>
                 <ol>
                     <li>Скачать архив с проектом <a href="mobi.zip">mobi.zip</a> (тут одна страница) и разархивировать себе на рабочий стол.</li>
                     <li>
@@ -103,29 +103,550 @@
                 <li><b>С потерями</b> &mdash; когда удаляются некоторые данные пикселей, это возможно из-за особенностей человеческого зрения (изменения попросту будут слабо заметны).</li>
                 <li><b>Без потерь</b> &mdash; когда все данные остаются, а удаляется ненужная информация не влияющая на качество.</li>
             </ul>
+
+            <h5>JPG</h5>
+            <p>
+                При использовании сжатия с потерями, например JPEG, вы сможете выбрать настройки качества (вроде ползунка Сохранить для Web в Adobe Photoshop). Обычно это значение от 1 до 100, которое определяет применение алгоритмов сжатия с потерями и без. Не бойтесь снижать качество: часто изображение по-прежнему хорошо выглядит, а размер файла становится значительно меньше.
+                <br />
+                <img src="images/photoshop-save-for-web-jpg.png" alt="Диалог сохранения изображения для Web - JPG"/>
+            </p>
+            <p>
+                Визуально можно увидеть как изображение изменится при изменении уровня качества прямо в окошке сохранения для Web.
+            </p>
+            <p>
+                На практике оптимальным является использование значение <b>72</b> для сжатия для изображения формате JPG.
+            </p>
+            <img src="images/photoshop-save-for-web-jpg-72.png" alt="Настройка для сохранения в формате JPG"/>
+            <p>
+                Если изображение размытое, то можно использовать и более низкое значение, кроме того можно использовать ползунок <b>Размытие</b> (blur) и выставить значение при котором визуально изображение не ухудшится. </p>
+            <img src="images/photoshop-save-for-web-jpg-60-blur.png" alt="Размытое изображение можно сжать ещё больше"/>
+            <p>
+                Для дальнейшего сжатия рекомендуется использовать утилиту <a href="http://jpegclub.org/jpegtran/">jpegtran</a> либо онлайн сервисы например <a href="https://tinyjpg.com/">TinyJPG</a>.
+            </p>
+            <div class="task">
+                <h3>Задание #1.2</h3>
+                <ol>
+                    <li>
+                        Скачать файл <a href="photo.png">photo.png</a> и скопировать его в созданную ранее папку <b>src</b> в папке <b>img</b>.
+                        <br />
+                        <img  src="images/photo-png-in-src.png" alt="Изображение photo.png в папке src"/>
+                        <br />
+                        Обратить внимание что размер изображения 923 КБ, что является довольно большим значением. Фотографии среднего размера должны занимать не больше 250 Кб, если идёт речь о фото с хорошим качеством.
+                    </li>
+                    <li>
+                        Откройте изображение <b>photo.png</b> в Photoshope-е.
+                        <br/>
+                        <img src="images/photo-png-open-in-photoshop.png" alt="Открыть изображение в Photoshop-e"/>
+                    </li>
+                    <li>
+                        Зайти в меню <b>Файл</b>, выбрать опцию <b>Экспортировать</b>, затем выбрать опцию <b>Сохранить для Web</b> или нажать <b>Ctrl Alt Shift S</b>
+                        <br/>
+                        <img src="images/photo-png-export-in-photoshop.png" alt="Экспортировать для веб"/>
+                    </li>
+                    <li>
+                        В диалоге выбрать формат сохранения <b>JPG</b> (высокое качество) и уровень качества <b>72</b>:
+                        <br />
+                        <img src="images/photo-png-export-in-photoshop-jpg-72.png" alt="Выставить значения сжатия для изображения 72"/>
+                        <br/>
+                        Нажать кнопку <b>Сохранить</b>
+                    </li>
+                    <li>
+                        Сохранить в папку <b>src</b> созданную ранее:
+                        <br />
+                        <img src="images/photo-png-export-save.png" alt="Сохранить в папку src созданную ранее"/>
+                    </li>
+                    <li>
+                        Открыть папку и убедиться что изображение теперь весит 206 КБ
+                        <br/>
+                        <img src="images/photo-png-export-jpg.png" alt="Открыть папку и убедиться что изображение теперь весит 206 КБ"/>
+                    </li>
+                    <li>
+                        Зайти на страницу <a href="http://jpegclub.org/jpegtran/">http://jpegclub.org/jpegtran/</a> и скачать <a href="http://jpegclub.org/jpegtran.exe">jpegtran.exe</a>, затем скопировать файл <b>jpegtran.exe</b> в папку <b>src</b>:
+                        <br/>
+                        <img src="images/jpegtran.png" alt="JPEGTran в папке SRC"/>
+                    </li>
+                    <li>
+                        В папке <b>src</b> навести <b>курсор на пустое место</b> и нажать <b>правую кнопку мыши вместе с зажатой клавишей Shift</b> и выбрать пункт контекстного меню <b>Открыть окно команд</b> &mdash; при этом откроется командная строка в которой можно будет использовать утилиту <b>jpegtran.exe</b>:
+                        <br />
+                        <img src="images/src-command-window.png" alt="Открыть командную строку"/>
+                    </li>
+                    <li>
+                        Скопировать строчку <code>jpegtran -copy none -optimize -outfile photo-dist.jpg photo.jpg</code>
+                    </li>
+                    <li>
+                        Вставить в командную строку нажав правой кнопкой на командной строке и выбрать <b>Вставить</b> или нажать <b>Ctrl V</b>:
+                        <br/>
+                        <img src="images/command-line-paste-jpetran.png" alt="Вставить в командную строку нажав правой кнопкой на командной строке и выбрать вставить"/>
+                        <br/>
+                        Мы указали параметры сжатия и имя файла для сжатия (в конце команды) и выходной файл который будет новым сжатым файлом (указывается после параметра -outfile)
+                    </li>
+                    <li>
+                        Нажать <b>Enter</b>
+                        <br >
+                        <img src="images/command-line-jpetran.png" alt="Нажать Enter"/>
+                    </li>
+                    <li>
+                        Обратить внимание что размер нового файла <b>photo-dist.jpg</b> уменьшился на 1 КБ
+                        <br />
+                        <img src="images/saved-file-jpg.png" alt=" Обратить внимание что размер файла photo-dist.jpg уменьшился на 1 КБ"/>
+                    </li>
+                    <li>
+                        Открыть файлы <b>photo.jpg</b> и <b>photo-dist.jpg</b> и убедиться что визуально обе фотографии выглядят идентично.
+                    </li>
+                    <li>
+                        Скопировать файл <b>photo-dist.jpg</b> в папку <b>dist</b>
+                        <br/>
+                        <img src="images/dist-with-jpg.png" alt="Скопировать файл photo-dist.jpg в папку dist"/>
+                    </li>
+                </ol>
+            </div>
+            <h5>
+                PNG
+            </h5>
+            <p>
+                В Photoshop-е возможно уменьшить количество используемых в палитре PNG-8 цветов, однако это приведёт к потере качества изображения, хотя размер уменьшится.
+            </p>
+            <div class="task">
+                <h3>Задание #1.3</h3>
+                <ol>
+                    <li>
+                        Открыть папку <b>src</b>.
+                        <br />
+                        <img  src="images/src-png24.png" alt="Изображение cart.png в папке src"/>
+                        <br />
+                        Обратить внимание что размер изображения <b>cart.png</b> составляет 74.8 КБ что довольно много для такого небольшого изображения.
+                    </li>
+                    <li>
+                        Открыть в Photoshop-е изображение <b>cart.png</b>
+                        <br />
+                        <img src="images/photoshop-cart.png" alt="Открытое изображение cart.png в Photoshop-е"/>
+                    </li>
+                    <li>
+                        В меню Photoshop-а выбрать <b>Изображение</b> затем <b>Коррекция</b> затем <b>Постеризация</b>
+                        <br/>
+                        <img src="images/photoshop-posterization.png" alt="Постеризация в Photoshop-е"/>
+                    </li>
+                    <li>
+                        В открывшемся диалоге выставить значение <b>70</b> и нажать <b>OK</b>
+                        <br />
+                        <img src="images/photoshop-posterization-level.png" alt="Уровень постеризации 70"/>
+                        <br />
+                        При выставлении уровня постеризации необходимо следить чтобы изображение не сильно исказилось.
+                    </li>
+                    <li>
+                        Перейти в режим сохранения для Web и выбрать формат PNG-24 (<b>Ctrl Alt Shift S</b>)
+                        <br />
+                        <img src="images/photoshop-posterization-save.png" alt="Перейти в режим сохранения для Web и выбрать формат PNG-24 (Ctrl Alt Shift S)"/>
+                    </li>
+                    <li>
+                        Сохранить изображение под именем <b>cart-dist.png</b> в той же папке <b>src</b>
+                        <br />
+                        <img src="images/photoshop-posterization-save-dist.png" alt="Сохранить изображение под именем cart-dist.png в той же папке src"/>
+                    </li>
+                    <li>
+                        После сохранения обратить внимание что размер изображения <b>cart-dist.png</b> составляет 48.7 КБ
+                        <br/>
+                        <img src="images/cart-dist.png" alt="cart-dist.png составляет 48.7 КБ"/>
+                     </li>
+                        Открыть изображение <b>cart-dist.png</b> и убедиться что оно практически не отличается от <b>cart.png</b>
+                        <br />
+                        <img src="images/cart-and-cart-dist.png" alt="Изображения cart.png и cart-dist.png"/>
+                    </li>
+                    <li>
+                        Скопировать изображение <b>cart.dist</b> в папку <b>dist</b>
+                        <br />
+                    </li>
+                </ol>
+            </div>
+            <h5>PNG-8</h5>
+            <p>
+                Для изображений в формате PNG-8 можно уменьшать палитру цветов.
+                <br/>
+                <img src="images/png8-pallette.png" alt="Палитра цветов PNG-8"/>
+            </p>
+            <blockquote>
+                Главное отличие PNG-8 от PNG-24 в том что по умолчанию полупрозрачность в нём 100%-я, нет непрозрачных наполовину пикселей.
+            </blockquote>
+            <p>
+                Рекомендуется использовать утилиты для сжатия PNG изображений в форматах PNG-8 и PNG-24:
+            </p>
+            <ul>
+                <li><a href="http://optipng.sourceforge.net/">optipng</a> &mdash; сжимает без потерь</li>
+                <li><a href="https://pngquant.org/">pngquant</a> &mdash; сжимает с потерями</li>
+                <li>специализированные сервисы для сжатия, например <a href="https://tinypng.com/">punypng</a></li>
+            </ul>
+            <div class="task">
+                <h3>Задание 1.4</h3>
+                <ol>
+                    <li>
+                        С сайта <a href="http://optipng.sourceforge.net/">http://optipng.sourceforge.net/</a> скачать <a href="http://prdownloads.sourceforge.net/optipng/optipng-0.7.6-win32.zip?download">optipng-0.7.6-win32.zip</a>
+                    </li>
+                    <li>
+                        Разархивировать папку и скопировать в буфер обмена <b>optipng.exe</b>, скопировать его в папку <b>dist</b>.
+                        <br />
+                        <img src="images/optipng-dist.png" alt="Optipng ввутри папки dist"/>
+                    </li>
+                    <li>
+                        В папке <b>src</b> выделить и скопировать все PNG файлы обратив внимание на размер <b>1.73 МБ</b>:
+                        <br />
+                        <img src="images/src-png.png" alt="Все изображения в формате PNG"/>
+                    </li>
+                    <li>
+                        Вставить их в папку <b>dist</b>
+                        <br/>
+                        <img src="images/dist-png.png" alt="Все PNG изображения в папке dist"/>
+                    </li>
+                    <li>
+                        В папке <b>dist</b> кликнуть на свободное место правой кнопкой мыши с зажатой кнопкой Shift и выбрать "Открыть окно команд"
+                        <br/>
+                        <img src="images/dist-png-command-window.png" alt="Открыть окно команд"/>
+                    </li>
+                    <li>
+                        Скопировать код запуска утилиты по оптимизации PNG изображений<br>
+                        <code>optipng -o7 *.png</code>
+                        <br/>
+                        <b>-o7</b> &mdash; флаг указывающий наивысший уровень компрессии
+                    </li>
+                    <li>
+                        Вставить в командную строку код и нажать <b>Enter</b>
+                        <br/>
+                        <img src="images/dist-png-command-window-code.png" alt="Код для оптимизации PNG изображений"/>
+                    </li>
+                    <li>
+                        Дождаться окончания процесса оптимизации
+                        <br/>
+                        <img src="images/dist-optimized-png.png" alt="Дождаться окончания процесса оптимизации"/>
+                    </li>
+                    <li>
+                        Выделить все PNG изображения в папке <b>dist</b> и убедиться что размер стал меньше &mdash; <b>1.67 МБ</b>
+                        <br/>
+                        <img src="images/dist-png-compressed.png" alt="Сжатые PNG изображения"/>
+                    </li>
+                    <li>
+                        В названиях с суффиксом <b>-dist</b> убрать суффикс и перезаписать эти изображения.
+                    </li>
+                    <li>
+                        Просмотреть все изображения &mdash; нет ли битых картинок.
+                    </li>
+                    <li>Все изображения из папки <b>dist</b> скопировать в папку <b>img</b> проекта <b>mobi</b>.</li>
+                </ol>
+            </div>
+            <h5>
+                GIF
+            </h5>
+            <p>
+                Рекомендуется не использовать GIF, потому что формат PNG сжимается лучше, единственный вариант когда вам может понадобиться GIF это для сохранения анимации &mdash; для этого подойдёт анимированный GIF который обладает поддержкой всеми браузерами.
+            </p>
+            <hr/>
+            <p>
+                Не бойтесь экспериментировать с параметрами компрессоров. Установите разные настройки качества, выберите подходящий вариант и примените его к другим похожим изображениям на сайте. Но помните: не все графические ресурсы нужно сжимать одним и тем же методом!
+            </p>
             <h2>
                 <a id="sprites" class="anchor" href="#sprites" aria-hidden="true"><span aria-hidden="true"
                                                                                           class="octicon octicon-link"></span>Спрайты.</a>
             </h2>
-
+            <p>
+                Спрайт это изображение объединяющее в себе несколько других изображений.
+            </p>
+            <p>
+                К примеру Google использует такой спрайт в одном из своих продуктов:
+            </p>
+        <img src="images/google-sprite.png" alt="Пример спрайта"/>
+            <p>
+                Использование спрайтов позволяет уменьшить количество обращений к серверу и при одном запросе к изображению-спрайту, после его загрузки в браузер окажутся все нужные изображения.
+            </p>
+            <p>В древние времена их использовали для загрузки изображений включающих все состояния кнопок &mdash; <a href="https://css-tricks.com/examples/Sprites+SlidingDoors-Button/">https://css-tricks.com/examples/Sprites+SlidingDoors-Button/</a>.</p>
+            <p>А в более поздние древние времена некоторые известные компании размещали в них все элементы основной навигации &mdash; <a href="http://web.archive.org/web/20080104132100/http://www.apple.com/">http://web.archive.org/web/20080104132100/http://www.apple.com/</a>.</p>
+            <p>
+                Статья из древних времён &mdash; <a href="https://css-tricks.com/css-sprites/">CSS Sprites: What They Are, Why They’re Cool, and How To Use Them</a>.
+            </p>
+            <p>
+                Спрайты так же просто созданы для анимации:
+            </p>
+            <p data-height="265" data-theme-id="0" data-slug-hash="MbyopY" data-default-tab="css,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Steps Animation" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/MbyopY/">Steps Animation</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h3>Спрайты в формате PNG</h3>
+            <p>
+                Для создания спрайтов больше всего подходит формат PNG-24 &mdash; он хорошо сжимается и поддерживает полупрозрачность.
+            </p>
 
+            <div class="task">
+                <h3>Задание 2.1</h3>
+                <ol>
+                    <li>Открыть Photoshop и нажать <b>Ctrl N</b>.</li>
+                    <li>
+                        Задать имя файла <b>sprite</b> а размеры: <b>25</b> x <b>100</b> px, задать содержимое фона <b>Прозрачный фон</b> и нажать <b>OK</b>
+                        <br/>
+                        <img src="images/sprite.png" alt="Спрайт"/>
+                    </li>
+                    <li>
+                        Из папки проекта <b>mobi</b> в файл sprite перетащить изображение <b>left.png</b> в Photoshope в <b>sprite</b>.
+                        <br/>
+                        <img src="images/sprite-left.png" alt="Перетащить left.png в sprite"/>
+                    </li>
+                    <li>
+                        Используя кнопку вверх подвинуть изображение <b>left.png</b> вверх и нажать <b>Ctrl Enter</b>
+                        <br/>
+                        <img src="images/sprite-left-2.png" alt="Используя кнопку вверх подвинуть изображение"/>
+                    </li>
+                    <li>
+                        Из папки проекта <b>mobi</b> в файл sprite перетащить изображение <b>checkmark.png</b> в Photoshope в <b>sprite</b>.
+                        <br/>
+                        <img src="images/sprite-checkmark.png" alt="Перетащить checkmark.png в sprite"/>
+                    </li>
+                    <li>
+                        Используя кнопку вниз подвинуть изображение <b>checkmark.png</b> вниз и нажать <b>Ctrl Enter</b>
+                        <br/>
+                        <img src="images/sprite-checkmark-2.png" alt="Используя кнопку вниз подвинуть изображение"/>
+                    </li>
+                    <li>
+                        Нажать <b>Ctrl Alt Shift S</b> и сохранить в папке <b>img</b> проекта <b>mobi</b> изображение <b>sprit.png</b> в формате PNG-24
+                        <br/>
+                        <img src="images/sprite-save-for-web.png" alt="Save for Web"/>
+                    </li>
+                </ol>
+            </div>
+
+            <p>
+                Для обновления стилей с помощью спрайтов полезно использовать сервисы сообщающие координаты того или иного изображения, например <a href="http://www.spritecow.com/">SpriteCow</a>
+            </p>
+            <div class="task">
+                <h3>Задание 2.1</h3>
+                <ol>
+                    <li>Открыть сервис <a href="http://www.spritecow.com/">http://www.spritecow.com/</a>.</li>
+                    <li>
+                        Из папки <b>img</b> проекта <b>mobi</b> перетащить изображение <b>sprite.png</b> прямо в браузере в область где написано <b>open image</b>
+                        <br/>
+                        <img src="images/spritecow.png" alt="Spritecow"/>
+                    </li>
+                    <li>
+                        Нажать кнопку <b>Toggle Dark Background</b> чтобы увидеть наш спрайт более ясно:
+                        <br/>
+                        <img src="images/spritecow-2.png" alt="Toggle Dark Background"/>
+                        <br/>
+                        <img src="images/spritecow-3.png" alt="Toggle Dark Background"/>
+                    </li>
+                    <li>
+                        Начиная с левого верхнего угла выделить верхнюю часть спрайта и убедиться что сгенерирован CSS код для стрелки влево:
+                        <br/>
+                        <img src="images/spritecow-arrow-left.png" alt="Стрелка влево"/>
+                    </li>
+                    <li>
+                        Открыть <b>main.css</b> в редакторе кода и обновить CSS-код в правилах для стрелки:
+                        <br/>
+<pre><code class="css">.carousel-control {
+    position: absolute;
+    width: 2.5rem;
+    height: 6.3rem;
+    top: 50%;
+    margin-top: -3.2rem;
+    <b>background: url(../img/sprite.png) no-repeat;</b>
+    cursor: pointer;
+}</code></pre>
+                    </li>
+                    <li>
+                        В новой вкладке открыть страницу <b>index.html</b> из проекта <b>mobi</b> в браузере и убедиться что карусель отображается нормально.
+                    </li>
+                    <li>
+                        На странице со SpriteCow выделить теперь нижнее изображение
+                        <br/>
+                        <img src="images/spritecow-checkmark.png" alt="Стили для checkmark"/>
+                    </li>
+                    <li>
+                        Обратить внимание на координаты изображения: <b>-1px -75px</b>
+                    </li>
+                    <li>
+                        В редакторе кода с открытым <b>main.css</b> обновить стили для правила псевдоэлемента кнопки:
+                        <br/>
+<pre><code class="css">.carousel-slides .carousel-button:before {
+    content: '';
+    width: 2.7rem;
+    height: 2.7rem;
+    background: #5094f2 <b>url(../img/sprite.png) no-repeat 1px -73px</b>;
+    border-radius: 50%;
+    position: absolute;
+    left: 1.1rem;
+    top: 50%;
+    margin-top: -1.35rem;
+}
+</code></pre>
+                        Было добавлено небольшое смещение чтобы изображение стало выровненым.
+                    </li>
+                    <li>Сохранить таблицу стилей</li>
+                    <li>Обновить страницу <b>index.html</b> в браузере и убедиться с помощью панели длл разработчика что карусель выглядит как положено и вместо двух изображений используется один sprite.png.</li>
+                </ol>
+            </div>
 
             <h3>Спрайты в формате SVG</h3>
-
+            <p>Спрайты в формате SVG можно делать так же как и PNG-спрайты, т.е. размещать их на полотне и задавать соответствующию позицию фона для каждого изобраений.</p>
+            <p>
+                Так же существует способ при котором все изображения внутри SVG располагаются в элементах с уникальным атрибутом <b>id</b> и для вывода этого изображения необходимо
+                указать путь к SVG файлу и в конце указать <b>#id_изображения</b>:
+            </p>
+            <p data-height="362" data-theme-id="0" data-slug-hash="NbNgpJ" data-default-tab="html,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Example of SVG sprites" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/alekskorovin/pen/NbNgpJ/">Example of SVG sprites</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <blockquote>
+                Когда SVG изображение вставлено в HTML-код его можно перекрашивать используя CSS.
+            </blockquote>
+            <p data-height="265" data-theme-id="0" data-slug-hash="ENKXmg" data-default-tab="css,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Css SVG hover color" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/alekskorovin/pen/ENKXmg/">Css SVG hover color</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h2>
                 <a id="js" class="anchor" href="#js" aria-hidden="true"><span aria-hidden="true"
-                                                                                        class="octicon octicon-link"></span>Основы JS - введение.</a>
+                                                                                        class="octicon octicon-link"></span>Знакомство с JavaScript.</a>
             </h2>
+            <p>
+                JavaScript это язык программирования который активно развивается в последние годы. JavaScript изначально проектировался как язык небольших скриптов-сценариев выполняющихся налету, в браузерах он поддерживался наряду с VisualBasic, но затем стал единоличным языком для веб-страниц.
+            </p>
+            <p>
+                Наиболее авторитетный ресурс на русском языке <a href="https://learn.javascript.ru/">Javascript.ru</a> Ильи Кантора.
+            </p>
+            <p>
+                С помощью JavaScript возможно:
+            </p>
+            <ul>
+                <li>Реагировать на события пользователя</li>
+                <li>Динамически строить части веб-страницы</li>
+                <li>Запоминать настройки пользователя</li>
+                <li>Рассчитывать размеры окна браузера и выводить сообщения в центр экрана</li>
+                <li>Рассчитывать размеры всех элементов страницы</li>
+                <li>Манипулировать частями страницы</li>
+                <li>Подгружать данные с помощью AJAX-запросов и обновлять отдельные части страницы</li>
+                <li>Создавать одностраничные приложения используя возможности якорей</li>
+                <li>Создавать диалоги и модальные окна</li>
+                <li>Можно рисовать динамические картинки</li>
+                <li>Переадресовывать пользователя на другую страницу</li>
+                <li>и многое другое</li>
+            </ul>
 
-            <h3>Компоненты gallery, popup</h3>
+            <h3>Компонент gallery</h3>
+            <p>
+                Этот компонент позволяет просматривать коллекцию изображений в максимально удобном виде.
+            </p>
+            <p>
+                Мы подключим популярную и надёжную библиотеку <a href="http://fotorama.io/">Fotorama</a> для создания галереи изображений. Эта библиотека прекрасно поддерживат мобильные устройства и её внешний вид можно удобно менять.
+            </p>
+            <div class="task">
+                <h3>Задание #3.1</h3>
+                <ol>
+                    <li>Скачать html-файл <a href="gallery.html">gallery.html</a>.</li>
+                    <li>Открыть его в браузере и убедиться что отображаются изображения.</li>
+                    <li>Открыть <b>gallery.html</b> в редакторе кода и добавить в элементе <b>head</b> строку
+                        <br/>
+<pre><code class="html">&lt;link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" /&gt;</code></pre>
+                    </li>
+                    <li>
+                        Перед закрывающим тегом <b>&lt;/body&gt;</b> добавить следующие две строки:
+                        <br/>
+<pre><code class="html">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"&gt;&lt;/script&gt;
+</code></pre>
+                    </li>
+                    <li>Обновить страницу <b>gallery.html</b> в браузере и убедиться что компонент заработал.</li>
+                </ol>
+            </div>
+
+            <h3>Компонент popup</h3>
+            <p>Этот компонент выводит поверх всей страницы окно с возможностью закрытия в котором может быть что угодно, от видео до формы либо какого-то сообщения.</p>
+            <p>Особенность скрипта, в том что он рассчитывает координаты вывода окна в центр браузера и содержит функциональность закрытия окна.</p>
+            <p>Мы подключим jQuery плагин <a href="http://dev.vast.com/jquery-popup-overlay/">jQuery Popup Overlay</a>.</p>
+            <div class="task">
+                <h3>Задание #3.2</h3>
+                <ol>
+                    <li>Скачать HTML-файл <a href="popup.html">popup.html</a>.</li>
+                    <li>Открыть его в браузере и убедиться что у нас есть две кнопки и заголовки с параграфом.</li>
+                    <li>Открыть его в редакторе кода</li>
+                    <li>
+                        В элементе <b>head</b> добавить следующий код:
+<pre><code class="html">&lt;style&gt;
+    #my_popup {
+        padding: 1rem;
+        background-color: #f5f5f5;
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+    }
+&lt;/style&gt;</code></pre>
+                    </li>
+                    <li>Перед закрывающим тегом <b>&lt;/body&gt;</b>
+                    разместить следующий код:
+<pre><code class="html">&lt;script src="https://code.jquery.com/jquery-1.8.2.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(document).ready(function() {
+    $('#my_popup').popup();
+    });
+&lt;/script&gt;</code></pre>
+                        Сохранить HTML
+                    </li>
+                    <li>
+                        Обновить страницу в браузере и убедиться что при нажатии на кнопку <b>Открыть popup</b> открывается окно.
+                    </li>
+                </ol>
+            </div>
+
 
             <h2>
                 <a id="dynamic-content" class="anchor" href="#dynamic-content" aria-hidden="true"><span aria-hidden="true"
                                                                               class="octicon octicon-link"></span>Динамический контент и стили.</a>
             </h2>
 
-            <h3>Компоненты gallery, popup</h3>
+            <h3>
+                Борьба с динамическим контентом.
+            </h3>
+            <p>
+                С динамическим контентом возникают некоторые проблемы, которые в основном довольно легко решить используя CSS стили. Основные проблемы:
+            </p>
+            <ul>
+                <li>Длинные строки или слова без пробелов</li>
+                <li>Много строк, больше чем рассчитывал верстальщик</li>
+                <li>Специальные символы: &trade; &reg; &amp; &mdash; и другие</li>
+                <li>Размер изображений не такой как предполагалось</li>
+                <li>Выравнивание фоновых изображений</li>
+            </ul>
+
+            <h4>
+                Длинные строки или слова без пробелов
+            </h4>
+            <p>
+                Если текст должен выводиться в одну строку, то в CSS есть возможность запретить перенос слов на другую строку, а затем с помощью дополнительных свойств можно добавить поведение при котором если текст шире контейнера в конце текст обрывается троеточием.
+            </p>
+            <p data-height="168" data-theme-id="0" data-slug-hash="ENKXLW" data-default-tab="html,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Control long one line string" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/ENKXLW/">Control long one line string</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <h4>
+                Много строк, больше чем рассчитывал верстальщик
+            </h4>
+            <p>
+                Если задать свойство <b>overflow: auto</b> &mdash; это добавить контейнеру возможость отобразить полосы прокрутки если содержимое не помещается.
+            </p>
+            <p data-height="249" data-theme-id="0" data-slug-hash="ObNgZd" data-default-tab="html,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Control multi line strings" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/ObNgZd/">Control multi line strings</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <p>Кроме того для многострочных текстов есть плагины позволяющие динамически добавлять троеточие если текст превышает максмальную высоту контейнера, например <a href="http://dotdotdot.frebsite.nl/">http://dotdotdot.frebsite.nl/</a>.</p>
+            <h4>
+                Спецсимволы
+            </h4>
+            <p>
+                Существуют таблицы спецсимволов, в которых вы можете найти необходимый значок и его эквивалент в HTML формате, например вот таблица спец. символов <a href="http://migo.sixbit.org/more/html-entities.html">HTML Entities</a>.
+            </p>
+            <p>Наиболее часто встречающиеся спецсимволы:</p>
+            <ul>
+                <li><b>&copy;</b> &mdash; &amp;copy;</li>
+                <li><b>&reg;</b> &mdash; &amp;reg;</li>
+                <li><b>&trade;</b> &mdash; &amp;trade;</li>
+            </ul>
+            <h4>
+                Размер изображений
+            </h4>
+            <p>
+                В CSS можно задать максимальные размеры контейнера, содержащего изображение, при этом можно добавить <b>overflow: hidden</b> и если изображение будет вылезать за рамки отведенной области, оно обрежется. Кроме того при заданном стиле <b>img { max-width: 100%; }</b> изображение никогда не будет шире своего контейнера.
+            </p>
+            <h4>
+                Выравнивание фоновых изображений
+            </h4>
+            <p>Для выравнивания фонового изображения, существуют два значения свойства <b>background-position</b> позволяющие покрыть контейнер полностью либо так чтобы изображение вмещалось:</p>
+            <ul>
+                <li>
+                    <b>cover</b> &mdash; полностью покрыть изображением контейнер
+                    <p data-height="470" data-theme-id="0" data-slug-hash="JbXJZy" data-default-tab="css,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Background-cover" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/JbXJZy/">Background-cover</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                </li>
+                <li>
+                    <b>contain</b> &mdash; изображение полностью видимо в контейнере
+                    <p data-height="477" data-theme-id="0" data-slug-hash="VmaWBx" data-default-tab="css,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Background contain" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/VmaWBx/">Background contain</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                </li>
+            </ul>
 
 
             <h2>
@@ -134,13 +655,35 @@
             </h2>
 
             <h3>LESS</h3>
+            <h4>
+                <a href="http://less-lang.info/guide/">Основы Less</a>
+            </h4>
+            <h4>Компиляция LESS</h4>
+            <p>Для компиляции LESS можно использовать приложение <a href="http://winless.org/">http://winless.org/</a> которое позволяет указать что компилировать и даёт настройки самой компиляции в CSS.</p>
+            <p>
 
+            </p>
+            <h5>Установка Winless и проверка компиляции</h5>
 
-            
+            <ul>
+                <li>Скачать <a href="less.zip">less.zip</a> &mdash; разархивировать папку.</li>
+                <li>
+                    Скачать программу <a href="http://winless.org/downloads/WinLess-1.9.1.msi">Winless</a> и установить её.
+                </li>
+                <li>
+                    После запуска программы &mdash; указать папку <b>less</b> и задать выходную папку для компиляции <b>css</b> для файла <b>main.less</b>
+                    <br />
+                    <img src="images/less.png" alt="LESS"/>
+                </li>
+                <li>Убедиться что в папке <b>css</b> скомпилировался <b>master.css</b></li>
+                <li>Открыть <b>master.css</b> и ознакомиться с его содержанием.</li>
+            </ul>
+
             <div class="task">
                 <h3>Домашнее задание</h3>
                 <ol>
-                    <li>Начать либо пройти курс <b>Знакомство с LESS</b>.</li>
+                    <li>Начать либо пройти курс <b>Знакомство с SVG</b>.</li>
+                    <li>Закончить все текущие домашние задания!</li>
                 </ol>
             </div>
 
