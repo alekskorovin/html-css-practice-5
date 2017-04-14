@@ -399,7 +399,7 @@
                         <img src="images/sprite-checkmark-2.png" alt="Используя кнопку вниз подвинуть изображение"/>
                     </li>
                     <li>
-                        Нажать <b>Ctrl Alt Shift S</b> и сохранить в папке <b>img</b> проекта <b>mobi</b> изображение <b>sprit.png</b> в формате PNG-24
+                        Нажать <b>Ctrl Alt Shift S</b> и сохранить в папке <b>img</b> проекта <b>mobi</b> изображение <b>sprite.png</b> в формате PNG-24
                         <br/>
                         <img src="images/sprite-save-for-web.png" alt="Save for Web"/>
                     </li>
@@ -472,7 +472,7 @@
                         Было добавлено небольшое смещение чтобы изображение стало выровненым.
                     </li>
                     <li>Сохранить таблицу стилей</li>
-                    <li>Обновить страницу <b>index.html</b> в браузере и убедиться с помощью панели длл разработчика что карусель выглядит как положено и вместо двух изображений используется один sprite.png.</li>
+                    <li>Обновить страницу <b>index.html</b> в браузере и убедиться с помощью панели для разработчика что карусель выглядит как положено и вместо двух изображений используется один <strong>sprite.png</strong>.</li>
                 </ol>
             </div>
 
@@ -606,7 +606,8 @@
             <p>
                 Если текст должен выводиться в одну строку, то в CSS есть возможность запретить перенос слов на другую строку, а затем с помощью дополнительных свойств можно добавить поведение при котором если текст шире контейнера в конце текст обрывается троеточием.
             </p>
-            <p data-height="168" data-theme-id="0" data-slug-hash="ENKXLW" data-default-tab="html,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Control long one line string" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/ENKXLW/">Control long one line string</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <p data-height="265" data-theme-id="0" data-slug-hash="ENKXLW" data-default-tab="html,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Control long one line string" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/ENKXLW/">Control long one line string</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <p data-height="265" data-theme-id="0" data-slug-hash="KmwGOm" data-default-tab="css,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Control long one line string" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/KmwGOm/">Control long one line string</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h4>
                 Много строк, больше чем рассчитывал верстальщик
             </h4>
@@ -614,6 +615,13 @@
                 Если задать свойство <b>overflow: auto</b> &mdash; это добавить контейнеру возможость отобразить полосы прокрутки если содержимое не помещается.
             </p>
             <p data-height="249" data-theme-id="0" data-slug-hash="ObNgZd" data-default-tab="html,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="Control multi line strings" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/ObNgZd/">Control multi line strings</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <p>
+                Можно задавать по отдельности для горизонтальной и вертикальной полосы прокрутки:
+            </p>
+            <ul>
+                <li><b>overflow-x: auto;</b> &mdash; для появления только горизонтальной полосы прокрутки если контента больше чем вмещается в контейнер</li>
+                <li><b>overflow-y: auto;</b> &mdash; для появления только вертикальной полосы прокрутки</li>
+            </ul>
             <p>Кроме того для многострочных текстов есть плагины позволяющие динамически добавлять троеточие если текст превышает максмальную высоту контейнера, например <a href="http://dotdotdot.frebsite.nl/">http://dotdotdot.frebsite.nl/</a>.</p>
             <h4>
                 Спецсимволы
@@ -633,10 +641,13 @@
             <p>
                 В CSS можно задать максимальные размеры контейнера, содержащего изображение, при этом можно добавить <b>overflow: hidden</b> и если изображение будет вылезать за рамки отведенной области, оно обрежется. Кроме того при заданном стиле <b>img { max-width: 100%; }</b> изображение никогда не будет шире своего контейнера.
             </p>
+            <p>
+                Для сохранения пропорций изображения рекомендуется запись &mdash; <b>img { max-width: 100%; height: auto; }</b>
+            </p>
             <h4>
                 Выравнивание фоновых изображений
             </h4>
-            <p>Для выравнивания фонового изображения, существуют два значения свойства <b>background-position</b> позволяющие покрыть контейнер полностью либо так чтобы изображение вмещалось:</p>
+            <p>Для выравнивания фонового изображения, существуют два значения свойства <b>background-position</b> позволяющие покрыть контейнер полностью либо так чтобы изображение всегда вмещалось:</p>
             <ul>
                 <li>
                     <b>cover</b> &mdash; полностью покрыть изображением контейнер
